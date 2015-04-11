@@ -55,6 +55,6 @@ class SpecialsController < ApplicationController
     end
 
     def special_params
-      params.require(:special).permit(:title, :description, :special_length, :comedian, :rating)
+      params.require(:special).permit(:title, :description, :special_length, :comedian, :rating, :image)
     end
 end

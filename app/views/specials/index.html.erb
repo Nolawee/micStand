@@ -17,6 +17,7 @@
   <tbody>
     <% @specials.each do |special| %>
       <tr>
+        <td><%= image_tag special.image.url(:medium)%></td>
         <td><%= special.title %></td>
         <td><%= special.description %></td>
         <td><%= special.special_length %></td>

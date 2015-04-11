@@ -1,4 +1,4 @@
-<%= form_for(@special) do |f| %>
+<%= form_for @special, html: { multipart: true } do |f| %>
   <% if @special.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@special.errors.count, "error") %> prohibited this special from being saved:</h2>
@@ -30,6 +30,10 @@
   <div class="field">
     <%= f.label :rating %><br>
     <%= f.text_field :rating %>
+  </div>
+  <div class = "field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>
