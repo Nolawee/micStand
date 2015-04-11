@@ -1,28 +1,38 @@
-<%= image_tag @special.image.url(:medium) %>
-<p>
-  <strong>Title:</strong>
-  <%= @special.title %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @special.image.url(:medium) %>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Title:</strong></td>
+                <td><%= @special.title %></td>
+              </tr>
+              <tr>
+                <td><strong>Description:</strong></td>
+                <td><%= @special.description %></td>
+              </tr>
+              <tr>
+                <td><strong>Movie length:</strong></td>
+                <td><%= @special.special_length %></td>
+              </tr>
+              <tr>
+                <td><strong>Comedian:</strong></td>
+                <td><%= @special.comedian %></td>
+              </tr>
+              <tr>
+                <td><strong>Year:</strong></td>
+                <td><%= @special.rating %></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @special.description %>
-</p>
-
-<p>
-  <strong>Special length:</strong>
-  <%= @special.special_length %>
-</p>
-
-<p>
-  <strong>Comedian:</strong>
-  <%= @special.comedian %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @special.rating %>
-</p>
 
 <%= link_to 'Edit', edit_special_path(@special) %> |
 <%= link_to 'Back', specials_path %>
