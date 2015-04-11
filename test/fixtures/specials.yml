@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  special_length: MyString
+  comedian: MyString
+  rating: MyString
+
+two:
+  title: MyString
+  description: MyText
+  special_length: MyString
+  comedian: MyString
+  rating: MyString

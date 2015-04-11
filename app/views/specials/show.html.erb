@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @special.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @special.description %>
+</p>
+
+<p>
+  <strong>Special length:</strong>
+  <%= @special.special_length %>
+</p>
+
+<p>
+  <strong>Comedian:</strong>
+  <%= @special.comedian %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @special.rating %>
+</p>
+
+<%= link_to 'Edit', edit_special_path(@special) %> |
+<%= link_to 'Back', specials_path %>
