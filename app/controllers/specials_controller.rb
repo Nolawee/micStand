@@ -1,15 +1,31 @@
 class SpecialsController < ApplicationController
   before_action :set_special, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+
+  def search
+    if params[:search].present?
+      @specials = Special.search(params[:search])
+    else
+      @specials = Special.all
+    end
+  end
+
   def index
     @specials = Special.all
   end
 
   def show
+    @reviews = Review.where(movie_id: @special.id).order("created_at DESC")
+
+    if @reviews.blank?
+      @avg_review = 0
+    else
+      @avg_review = @reviews.average(:rating).round(2)
+    end
   end
 
   def new
-    @special = current_user.specials.build
+    @movie = current_user.specials.build
   end
 
   def edit
@@ -55,6 +71,6 @@ class SpecialsController < ApplicationController
     end
 
     def special_params
-      params.require(:special).permit(:title, :description, :special_length, :comedian, :rating, :image)
+      params.require(:special).permit(:title, :description, :movie_length, :director, :rating, :image)
     end
 end

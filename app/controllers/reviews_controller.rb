@@ -1,13 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_special
   before_action :authenticate_user!
-  
-  def index
-    @reviews = Review.all
-  end
-
-  def show
-  end
 
   def new
     @review = Review.new
@@ -27,7 +21,7 @@ class ReviewsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def update
     @review.update(review_params)
   end
@@ -42,8 +36,8 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:id])
     end
 
-    def set_movie
-      @special = special.find(params[:special_id])
+    def set_special
+      @special = Special.find(params[:special_id])
     end
 
     def review_params

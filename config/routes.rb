@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :reviews
-
+  
   devise_for :users
-  resources :specials
+  
+  resources :specials do
+  	resources :reviews, except: [:show, :index]
+  end
 
   root 'specials#index'
 end
